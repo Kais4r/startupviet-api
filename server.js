@@ -1,8 +1,16 @@
 const mongoose = require("mongoose");
 const app = require("./app");
-// const cors = require("cors");
+const cors = require("cors");
 
-// app.use(cors());
+app.use(cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // Adjust the origin as needed
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 const PORT = process.env.PORT || 3000;
 
