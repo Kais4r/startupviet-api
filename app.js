@@ -1,6 +1,14 @@
 const express = require("express");
 const app = express();
 
+const cors = require("cors");
+// Use CORS middleware
+const corsOptions = {
+  origin: "", //(https://your-client-app.com)
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
 const newsRoutes = require("./api/news/newsRoutes");
 const userRoutes = require("./api/user/userRoutes");
 
@@ -11,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use("/", newsRoutes);
-app.use("/", userRoutes);
+app.use("/", cors(corsOptions), newsRoutes);
+app.use("/", cors(corsOptions), userRoutes);
 
 module.exports = app;
