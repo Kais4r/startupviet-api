@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 // Use CORS middleware
 const corsOptions = {
-  origin: "", //(https://your-client-app.com)
+  origin: "http://localhost:3001", //(https://your-client-app.com)
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
