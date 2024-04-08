@@ -9,6 +9,17 @@ exports.getAllNews = async () => {
   }
 };
 
+exports.getPaginatedNews = async (page = 1, limit = 10) => {
+  try {
+    const newsList = await News.find({})
+      .skip((page - 1) * limit)
+      .limit(limit);
+    return newsList;
+  } catch (error) {
+    throw error;
+  }
+};
+
 exports.getNewsById = async (id) => {
   try {
     const news = await News.findById(id);

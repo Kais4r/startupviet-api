@@ -3,6 +3,7 @@ const router = express.Router();
 const newsController = require("./newsController");
 
 router.get("/api/news/all", newsController.getAllNews);
+router.get("/api/news/paginated", newsController.getPaginatedNews);
 router.get("/api/news/:id", newsController.getNewsById);
 router.post("/api/news/add", newsController.addNews);
 router.put("/api/news/update/:id", newsController.updateNewsById);

@@ -8,6 +8,17 @@ exports.getAllNews = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+``;
+exports.getPaginatedNews = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 4;
+    const newsList = await newsService.getPaginatedNews(page, limit);
+    res.status(200).json(newsList);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 exports.getNewsById = async (req, res) => {
   try {
