@@ -1,5 +1,14 @@
 const User = require("../../models/user.model");
 
+exports.getUserByNameAndPassword = async (username, password) => {
+  try {
+    const user = await User.findOne({ username, password }); // Assuming 'name' and 'password' are stored in the database
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 exports.getAllUser = async () => {
   try {
     const userList = await User.find({});

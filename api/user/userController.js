@@ -1,5 +1,18 @@
 const userService = require("./userServices");
 
+exports.getUserByNameAndPassword = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await userService.getUserByNameAndPassword(username, password);
+    if (!user) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    res.status(200).json("login successfully");
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.getAllUser = async (req, res) => {
   try {
     const userList = await userService.getAllUser();
