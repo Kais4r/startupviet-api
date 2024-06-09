@@ -7,7 +7,7 @@ exports.getUserByNameAndPassword = async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
-    res.status(200).json("login successfully");
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
