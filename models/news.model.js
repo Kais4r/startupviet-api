@@ -13,6 +13,10 @@ const NewsSchema = mongoose.Schema({
     type: String,
     required: [true, "Please enter username"],
   },
+  userid: {
+    type: String,
+    required: [true, "Please enter userid"],
+  },
   date: {
     type: Date,
     default: Date.now,
