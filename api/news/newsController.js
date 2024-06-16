@@ -29,6 +29,15 @@ exports.getNewsById = async (req, res) => {
   }
 };
 
+exports.getAllNewsByUserId = async (req, res) => {
+  try {
+    const news = await newsService.getAllNewsByUserId(req.params.id);
+    res.status(200).json(news);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.addNews = async (req, res) => {
   try {
     const news = await newsService.addNews(req.body);

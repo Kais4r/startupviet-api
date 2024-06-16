@@ -14,6 +14,10 @@ const UserSchema = mongoose.Schema({
     required: [true, "Is this user an admin ?"],
     default: false,
   },
+  account_balance: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

@@ -29,6 +29,15 @@ exports.getNewsById = async (id) => {
   }
 };
 
+exports.getAllNewsByUserId = async (userid) => {
+  try {
+    const news = await News.find({ userid: userid });
+    return news;
+  } catch (error) {
+    throw error;
+  }
+};
+
 exports.addNews = async (newsData) => {
   try {
     const news = await News.create(newsData);
