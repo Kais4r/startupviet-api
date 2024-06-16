@@ -9,4 +9,7 @@ router.post("/api/user/add", userController.addUser);
 router.put("/api/user/update/:id", userController.updateUserById);
 router.delete("/api/user/delete/:id", userController.deleteUserById);
 
+router.get("/api/user/balance/:id", userController.getUserBalanceById);
+router.put("/api/user/balance/addfund/:id", userController.getUserById);
+
 module.exports = router;

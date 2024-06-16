@@ -54,3 +54,12 @@ exports.deleteUserById = async (id) => {
     throw error;
   }
 };
+
+exports.getUserBalanceById = async (id) => {
+  try {
+    const user = await User.findById(id);
+    return user.account_balance;
+  } catch (error) {
+    throw error;
+  }
+};
