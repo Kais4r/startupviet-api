@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(
-    "mongodb+srv://Admin:aj&q3ha12A!@startupviet-cluster.bazupph.mongodb.net/startupviet-data?retryWrites=true&w=majority&appName=startupviet-cluster"
+    ""
   )
   .then(() => {
     console.log("Connected to database!");
